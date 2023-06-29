@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Formularios;
+package View;
 
 import Clases.Cargo;
-import ClaseBO.Conexion;
-import ClaseBO.EliminarDatos;
-import ClaseBO.InsertarDatos;
-import ClaseBO.ListarDatos;
-import ClaseBO.ModificarDatos;
+import Controler.Conexion;
+import Controler.EliminarDatos;
+import Controler.InsertarDatos;
+import Controler.ListarDatos;
+import Controler.ModificarDatos;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
