@@ -3,13 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/View/Principal.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/DetallePedidoCompra.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Pagoempleado.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/ModificarDatos.java</file>
             <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/View/VCategoria.java</file>
-            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/ListarDatos.java</file>
-            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Cargo.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/EliminarDatos.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/ComprobantePago.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/InsertarDatos.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Cliente.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/EvaluacionDesempeño.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Horario.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/DetallePedidoVenta.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Producto.java</file>
             <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/Conexion.java</file>
             <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/View/VCargo.java</file>
-            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/InsertarDatos.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Formapago.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Pedidoventa.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Controler/ListarDatos.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Cargo.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/View/Principal.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/RegistroAlmacen.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/TipoPago.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Platillo.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Categoria.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Proveedor.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Empleado.java</file>
+            <file>file:/D:/UCSS/SEMESTRE%202023_1/BASE%20DE%20DATOS%201_461/ProyectoArchivos/ProyectoPolleriaBD/src/Clases/Pedidocompra.java</file>
         </group>
     </open-files>
 </project-private>
