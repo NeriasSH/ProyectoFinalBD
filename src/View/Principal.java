@@ -4,7 +4,7 @@
  */
 package View;
 
-import ReporteInventario.Proceso_Almacen;
+import Reportes.Proceso_Almacen;
 
 /**
  *

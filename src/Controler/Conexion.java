@@ -6,6 +6,8 @@ package Controler;
 
 
 import Clases.Cargo;
+import ClasesReportes.Almacen;
+import ClasesReportes.Compras;
 import java.sql.*;
 import java.util.ArrayList;
 public class Conexion {
@@ -70,6 +72,30 @@ public class Conexion {
         }catch(Exception e){
         }
          return lista;
+    }
+     
+      public ArrayList<Almacen> Listar2(String sql3){
+        ArrayList<Almacen>lista=new ArrayList();
+        try{
+            ps=con.prepareStatement(sql3);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                lista.add(new Almacen (rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)));
+            }
+        }catch(Exception e){}
+        return lista;
+    }
+    
+    public ArrayList<Compras> Listar3(String sql3){
+        ArrayList<Compras>lista=new ArrayList();
+        try{
+            ps=con.prepareStatement(sql3);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                lista.add(new Compras (rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9)));
+            }
+        }catch(Exception e){}
+        return lista;
     }
 }
      
