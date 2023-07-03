@@ -65,7 +65,7 @@ DefaultTableModel mitabla=new DefaultTableModel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel6.setFont(new java.awt.Font("Microsoft Tai Le", 1, 36)); // NOI18N
         jLabel6.setText("CHICKEN BROTHERS TARMA");
