@@ -5,36 +5,43 @@
 package ReporteInventario;
 
 import ClasesReportes.Almacen;
+import ClasesReportes.ViewVentas;
 import Controler.Conexion;
 import Controler.ListarDatos;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-public class Proceso_Almacen extends javax.swing.JFrame {
-DefaultTableModel mitabla=new DefaultTableModel();
-    public Proceso_Almacen() {
+
+
+public class Proceso_Ventas extends javax.swing.JFrame {
+
+    
+    DefaultTableModel mitabla=new DefaultTableModel();
+
+    public Proceso_Ventas() {
         initComponents();
         setLocationRelativeTo(null);
         ListarDatos listar = new ListarDatos();
-        
-       Conexion c= new Conexion();
-       ArrayList<Almacen>lista1=new ArrayList<>();
-       lista1=listar.Listar2("SELECT producto.idproducto,producto.nombreproducto,producto.cantidadporunidad,producto.preciounidad,registroalmacen.fechavencimiento,producto.unidadesenexistencia,registroalmacen.cantidadentrada FROM producto JOIN registroalmacen ON producto.idproducto = registroalmacen.idproducto");
-       tabla.setModel(mitabla);
-       String[]titulos={"ID","NOMBRE_PRODUCTO","CANTIDAD_UNIDAD","PRECIO_UNIDAD","FECHA_VENCIMIENTO","UNIDAD_EXISTENCIA","CANTIDAD_ENTRADA"};
-       mitabla.setColumnCount(titulos.length);
-       mitabla.setColumnIdentifiers(titulos);
-       String[]datos=new String[7];
+        Conexion c = new Conexion();
+        ArrayList<ViewVentas> lista1 = new ArrayList<>();
+        lista1 = listar.PVentas("Select * from viewlista");
+        tabla.setModel(mitabla);
+
+        String[] titulos = {"ID", "NOMBRE_PRODUCTO", "CANTIDAD_UNIDAD", "PRECIO_UNIDAD", "FECHA_VENCIMIENTO", "UNIDAD_EXISTENCIA", "CANTIDAD_ENTRADA"};
+        mitabla.setColumnCount(titulos.length);
+        mitabla.setColumnIdentifiers(titulos);
+        String[] datos = new String[7];
         mitabla.setRowCount(0);
-       for(Almacen l:lista1){
-           datos[0]=l.getIdprod();
+
+        for (ViewVentas l : lista1) {
+            /* datos[0]=l.getIdprod();
            datos[1]=l.getNombprod();
            datos[2]=l.getCantporunidad();
            datos[3]=l.getPreciounidad();
            datos[4]=l.getFechavencimiento();
            datos[5]=l.getUnidadexistencia();
-           datos[6]=l.getCantidadentrada();
-           mitabla.addRow(datos);
-       }
+           datos[6]=l.getCantidadentrada();*/
+            mitabla.addRow(datos);
+        }
     }
 
     /**
@@ -60,7 +67,7 @@ DefaultTableModel mitabla=new DefaultTableModel();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("REPORTE DE ALMACEN:");
+        jLabel2.setText("REPORTE DE VENTAS:");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DETALLE:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
@@ -192,14 +199,18 @@ DefaultTableModel mitabla=new DefaultTableModel();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Proceso_Almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proceso_Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Proceso_Almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proceso_Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Proceso_Almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proceso_Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Proceso_Almacen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proceso_Ventas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -208,7 +219,7 @@ DefaultTableModel mitabla=new DefaultTableModel();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Proceso_Almacen().setVisible(true);
+                new Proceso_Ventas().setVisible(true);
             }
         });
     }

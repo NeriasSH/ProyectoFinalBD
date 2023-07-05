@@ -6,6 +6,7 @@ package ReporteInventario;
 
 import ClasesReportes.Compras;
 import Controler.Conexion;
+import Controler.ListarDatos;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 public class Proceso_Compra extends javax.swing.JFrame {
@@ -14,11 +15,11 @@ DefaultTableModel mitabla=new DefaultTableModel();
         initComponents();
         
         setLocationRelativeTo(null);
-        
+         ListarDatos listar = new ListarDatos();
         
        Conexion c= new Conexion();
        ArrayList<Compras>lista1=new ArrayList<>();
-       lista1=c.Listar3("SELECT d.idpedidocompra, d.idproducto, p.nombreproducto, pr.idproveedor, pr.nombreempresa,\n" +
+       lista1=listar.Listar3("SELECT d.idpedidocompra, d.idproducto, p.nombreproducto, pr.idproveedor, pr.nombreempresa,\n" +
 "       d.cantidad, d.preciounidad, d.descuento,\n" +
 "       CAST(d.cantidad AS FLOAT) * CAST(d.preciounidad AS FLOAT) - (CAST(d.cantidad AS FLOAT) * CAST(d.preciounidad AS FLOAT) * CAST(d.descuento AS FLOAT)) AS total\n" +
 "FROM detallepedidocompra d\n" +
@@ -65,7 +66,7 @@ DefaultTableModel mitabla=new DefaultTableModel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel6.setFont(new java.awt.Font("Microsoft Tai Le", 1, 36)); // NOI18N
         jLabel6.setText("CHICKEN BROTHERS TARMA");
@@ -171,6 +172,9 @@ DefaultTableModel mitabla=new DefaultTableModel();
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1.getAccessibleContext().setAccessibleName("REPORTE DE COMPRAS:");
+        jPanel1.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

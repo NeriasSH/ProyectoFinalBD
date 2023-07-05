@@ -5,6 +5,9 @@
 package Controler;
 
 import Clases.*;
+import ClasesReportes.Almacen;
+import ClasesReportes.Compras;
+import ClasesReportes.ViewVentas;
 import java.util.ArrayList;
 
 /**
@@ -333,6 +336,56 @@ public class ListarDatos {
              System.out.println("ErrorListado: "+e);
         }
          return lista;
+    }
+    
+         public ArrayList<Almacen> Listar2(String sql3){
+        ArrayList<Almacen>lista=new ArrayList();
+        try{
+            c.ps=c.con.prepareStatement(sql3);
+            c.rs=c.ps.executeQuery();
+            while(c.rs.next()){
+                lista.add(new Almacen (c.rs.getString(1),c.rs.getString(2),c.rs.getString(3),c.rs.getString(4),c.rs.getString(5),c.rs.getString(6),c.rs.getString(7)));
+            }
+        }catch(Exception e){}
+        return lista;
+    }
+    
+    public ArrayList<Compras> Listar3(String sql3){
+        ArrayList<Compras>lista=new ArrayList();
+        try{
+            c.ps=c.con.prepareStatement(sql3);
+            c.rs=c.ps.executeQuery();
+            while(c.rs.next()){
+                lista.add(new Compras (c.rs.getString(1),c.rs.getString(2),c.rs.getString(3),c.rs.getString(4),c.rs.getString(5),c.rs.getString(6),c.rs.getString(7),c.rs.getString(8),c.rs.getString(9)));
+            }
+        }catch(Exception e){}
+        return lista;
+    }
+    
+      public  ArrayList<Empleado> Listar (String sql){
+         
+          ArrayList<Empleado>lista =new ArrayList();
+         try{
+            c.ps=c.con.prepareStatement(sql);
+            
+            c.rs=c.ps.executeQuery();
+            while(c.rs.next()){
+                lista.add(new Empleado (c.rs.getString(1), c.rs.getString(2), c.rs.getString(3), c.rs.getString(4),c.rs.getString(5),
+                        c.rs.getString(6), c.rs.getString(7), c.rs.getString(8), c.rs.getString(9)));
+            }
+            
+        }catch(Exception e){System.out.println(e);
+        }
+         return lista;
+    }
+      
+      public  ArrayList<ViewVentas> PVentas(String sql){
+          
+          ArrayList<ViewVentas>lista =new ArrayList();
+          
+          
+          return lista;
+         
     }
     
  
