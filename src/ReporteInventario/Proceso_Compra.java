@@ -4,6 +4,8 @@
  */
 package ReporteInventario;
 
+import ClasesReportes.Compras;
+import Controler.Conexion;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 public class Proceso_Compra extends javax.swing.JFrame {

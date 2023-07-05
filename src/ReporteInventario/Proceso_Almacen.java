@@ -4,6 +4,8 @@
  */
 package ReporteInventario;
 
+import ClasesReportes.Almacen;
+import Controler.Conexion;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 public class Proceso_Almacen extends javax.swing.JFrame {
