@@ -383,7 +383,18 @@ public class ListarDatos {
           
           ArrayList<ViewVentas>lista =new ArrayList();
           
-          
+            try{
+            c.ps=c.con.prepareStatement("SELECT * FROM vista_venta");
+            
+            c.rs=c.ps.executeQuery();
+            while(c.rs.next()){
+                lista.add(new ViewVentas (c.rs.getString(1), c.rs.getString(2), c.rs.getString(3), c.rs.getString(4), c.rs.getString(5), c.rs.getFloat(6), c.rs.getFloat(7), c.rs.getFloat(8), c.rs.getFloat(9),c.rs.getFloat(10)));
+            }
+            
+        }catch(Exception e){
+            
+             System.out.println("ErrorListadoVentas: "+e);
+        }
           return lista;
          
     }

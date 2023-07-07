@@ -4,10 +4,10 @@
  */
 package View;
 
-import ReporteInventario.Proceso_Almacen;
-import ReporteInventario.Proceso_Compra;
-import ReporteInventario.Proceso_Empleados;
-import ReporteInventario.Proceso_Ventas;
+import Reportes.Proceso_Almacen;
+import Reportes.Proceso_Compra;
+import Reportes.Proceso_Empleados;
+import Reportes.Proceso_Ventas;
 
 /**
  *
