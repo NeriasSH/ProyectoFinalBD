@@ -24,7 +24,7 @@ public class Proceso_Empleados extends javax.swing.JFrame {
      public void verEmpleado(){
         ArrayList<Empleado>lista1=new ArrayList<>();
        
-        lista1=listar.Listar("select * from vista_empleado");
+        lista1=listar.Listar("SELECT * FROM vista_empleado");
         
     
         tabla1.setModel(mitabla1);

@@ -47,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
         jPanel1.setPreferredSize(new java.awt.Dimension(750, 450));
@@ -164,11 +165,12 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton3)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
                 .addGap(43, 43, 43))
         );
 
@@ -190,7 +192,7 @@ public class Principal extends javax.swing.JFrame {
         VCategoria a = new VCategoria ();
         VCargo b = new VCargo ();
         VCliente c = new VCliente ();
-        Empleado e = new Empleado ();
+        VEmpleado e = new VEmpleado ();
         VPagoEmpleado pe = new VPagoEmpleado();
         VEvaluaciondesempeño ed=new VEvaluaciondesempeño();
         VFormapago fp = new VFormapago();

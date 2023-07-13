@@ -13,9 +13,9 @@ public class Pedidocompra {
     String IdPedidoCompra;
     String FechaPedido;
     String FechaEntrega;
-    Float Total;
+    String Total;
 
-    public Pedidocompra(String IdPedidoCompra, String FechaPedido, String FechaEntrega, Float Total) {
+    public Pedidocompra(String IdPedidoCompra, String FechaPedido, String FechaEntrega, String Total) {
         this.IdPedidoCompra = IdPedidoCompra;
         this.FechaPedido = FechaPedido;
         this.FechaEntrega = FechaEntrega;
@@ -46,11 +46,11 @@ public class Pedidocompra {
         this.FechaEntrega = FechaEntrega;
     }
 
-    public Float getTotal() {
+    public String getTotal() {
         return Total;
     }
 
-    public void setTotal(Float Total) {
+    public void setTotal(String Total) {
         this.Total = Total;
     }
 

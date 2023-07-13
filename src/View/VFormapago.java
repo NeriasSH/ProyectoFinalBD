@@ -3,11 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import Clases.*;
+import Controler.EliminarDatos;
+import Controler.InsertarDatos;
+import Controler.ListarDatos;
+import Controler.ModificarDatos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author USUARIO
- */
 public class VFormapago extends javax.swing.JFrame {
 
     /**
@@ -15,6 +18,8 @@ public class VFormapago extends javax.swing.JFrame {
      */
     public VFormapago() {
         initComponents();
+        this.setLocationRelativeTo(null); 
+        Listar();
     }
 
     /**
@@ -40,10 +45,16 @@ public class VFormapago extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
 
         jButton5.setText("Insertar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Borrar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -53,8 +64,18 @@ public class VFormapago extends javax.swing.JFrame {
         });
 
         jButton7.setText("Modificar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("Listar");
+        jButton8.setText("Limpiar Campos");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,6 +88,11 @@ public class VFormapago extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -97,23 +123,21 @@ public class VFormapago extends javax.swing.JFrame {
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jButton5)
+                .addGap(85, 85, 85)
+                .addComponent(jButton6)
+                .addGap(117, 117, 117)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(33, 33, 33))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton5)
-                            .addGap(82, 82, 82)
-                            .addComponent(jButton6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                            .addComponent(jButton7)
-                            .addGap(78, 78, 78)
-                            .addComponent(jButton8)
-                            .addGap(28, 28, 28))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(308, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(17, 17, 17)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -129,18 +153,18 @@ public class VFormapago extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
+                .addGap(45, 45, 45))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(46, 46, 46)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7)
-                        .addComponent(jButton8))
-                    .addGap(46, 46, 46)))
+                    .addContainerGap(102, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,10 +182,94 @@ public class VFormapago extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void Listar(){
+      ListarDatos listar = new ListarDatos();
+      DefaultTableModel mitabla=new DefaultTableModel();
+      
+      ArrayList<Formapago>lista1=new ArrayList<>();
+       
+      lista1=listar.FormaPago();
+      
+       jTable2.setModel(mitabla);
+       
+       String[] titulos = {"Codigo","Descripcion"};
+       
+       mitabla.setColumnCount(titulos.length);
+       
+       mitabla.setColumnIdentifiers(titulos);
+       
+       mitabla.setRowCount(0);
+       
+       String [] datos = new String [(titulos.length)+1];
+       
+       for(Formapago l:lista1){
+           datos[0] =l.getIdFormaPago();
+           datos[1]=l.getDescripcion();
+           mitabla.addRow(datos);  
+       }
+         
+    }
 
+public void Insertar(){
+        InsertarDatos insertar = new InsertarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        
+        
+        insertar.FormaPago(idT, idT2);
+    }
+
+public void Modificar(){
+        ModificarDatos modificar = new ModificarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        
+        
+        modificar.FormaPago(idT, idT2);
+    }
+
+public void Eliminar(){
+        EliminarDatos eliminar = new EliminarDatos();
+        String idT = jTextField1.getText();
+        eliminar.FormaPago(idT);
+        
+    }  
+
+public void Limpiar(){
+       
+        jTextField1.setText("");
+        jTextField2.setText("");
+    }
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+       //Eliminar
+        Eliminar();
+        Listar();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //Insertar
+         Insertar();
+         Listar();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //MOdificar
+        Modificar();
+        Listar();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //Limpiar
+         Limpiar();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+       //Sacar valores de tabla
+        jTextField1.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString());
+        jTextField2.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 1).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments

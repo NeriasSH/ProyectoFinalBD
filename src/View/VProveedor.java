@@ -4,10 +4,13 @@
  */
 package View;
 
-/**
- *
- * @author USUARIO
- */
+import Clases.*;
+import Controler.EliminarDatos;
+import Controler.InsertarDatos;
+import Controler.ListarDatos;
+import Controler.ModificarDatos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 public class VProveedor extends javax.swing.JFrame {
 
     /**
@@ -15,6 +18,8 @@ public class VProveedor extends javax.swing.JFrame {
      */
     public VProveedor() {
         initComponents();
+        this.setLocationRelativeTo(null); 
+        Listar();
     }
 
     /**
@@ -48,10 +53,16 @@ public class VProveedor extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
 
         jButton5.setText("Insertar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Borrar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -61,8 +72,18 @@ public class VProveedor extends javax.swing.JFrame {
         });
 
         jButton7.setText("Modificar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("Listar");
+        jButton8.setText("Limpiar Campos");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,6 +96,11 @@ public class VProveedor extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -91,7 +117,7 @@ public class VProveedor extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nombre Contactp");
+        jLabel4.setText("Nombre Contacto");
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,24 +154,22 @@ public class VProveedor extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(332, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButton5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton6))
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(144, 144, 144)
+                                .addComponent(jButton7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                                .addComponent(jButton8)))))
+                .addGap(38, 38, 38))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton5)
-                            .addGap(82, 82, 82)
-                            .addComponent(jButton6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
-                            .addComponent(jButton7)
-                            .addGap(78, 78, 78)
-                            .addComponent(jButton8)
-                            .addGap(28, 28, 28))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(298, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(17, 17, 17)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -177,18 +201,18 @@ public class VProveedor extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
+                .addGap(50, 50, 50))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(46, 46, 46)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7)
-                        .addComponent(jButton8))
-                    .addGap(46, 46, 46)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(121, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -209,9 +233,112 @@ public class VProveedor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Listar(){
+      ListarDatos listar = new ListarDatos();
+      DefaultTableModel mitabla=new DefaultTableModel();
+      
+      ArrayList<Proveedor>lista1=new ArrayList<>();
+       
+      lista1=listar.Proveedor();
+      
+       jTable2.setModel(mitabla);
+       
+       String[] titulos = {"Codigo","NombreEmpresa","NombreContanto","Telefono","Direccion","Pais"};
+       
+       mitabla.setColumnCount(titulos.length);
+       
+       mitabla.setColumnIdentifiers(titulos);
+       
+       mitabla.setRowCount(0);
+       
+       String [] datos = new String [(titulos.length)+1];
+       
+       for(Proveedor l:lista1){
+           datos[0] =l.getIdProveedor();
+           datos[1]=l.getNombreEmpresa();
+           datos[2]=""+l.getNombreContacto();
+           datos[3]=""+l.getTelefono();
+           datos[4]=""+l.getDireccion();
+           datos[5]=""+l.getPais();
+           mitabla.addRow(datos);  
+       }
+         
+    }
+
+public void Insertar(){
+        InsertarDatos insertar = new InsertarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        String text6 = jTextField6.getText();
+        String text7 = jTextField7.getText();
+        
+        
+        insertar.Proveedor(idT, idT2, text4, text5, text6, text7);
+    }
+
+public void Modificar(){
+        ModificarDatos modificar = new ModificarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        String text6 = jTextField6.getText();
+        String text7 = jTextField7.getText();
+        
+        
+        modificar.Proveedor(idT, idT2, text4, text5, text6, text7);
+    }
+
+public void Eliminar(){
+        EliminarDatos eliminar = new EliminarDatos();
+        String idT = jTextField1.getText();
+        eliminar.Proveedor(idT);
+        
+    }  
+
+public void Limpiar(){
+       
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+    }
+
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        //Eliminar
+        Eliminar();
+        Listar();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //Insertar
+         Insertar();
+         Listar();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //MOdificar
+        Modificar();
+        Listar();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //Limpiar
+         Limpiar();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        jTextField1.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString());
+        jTextField2.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 1).toString());
+        jTextField4.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 2).toString());
+        jTextField5.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 3).toString());
+        jTextField6.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 4).toString());
+        jTextField7.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 5).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments

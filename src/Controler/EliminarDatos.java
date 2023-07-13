@@ -13,15 +13,16 @@ public class EliminarDatos {
     
     public void Cargo (String xidpro){
          try{
-            c.ps=c.con.prepareStatement("DELETE FROM cargo WHERE IdCargo=?");
+            c.ps=c.con.prepareStatement("DELETE FROM cargo WHERE IdCargo =?");
             c.ps.setString(1, xidpro);
             c.ps.executeUpdate();
         }catch(Exception e){
+             System.out.println("ErrorEliminar "+e);
         }
     }
     public void Categoria (String xidpro){
          try{
-            c.ps=c.con.prepareStatement("DELETE FROM Categoria WHERE IdCliente=?");
+            c.ps=c.con.prepareStatement("DELETE FROM Categoria WHERE IdCategoria=?");
             c.ps.setString(1, xidpro);
             c.ps.executeUpdate();
         }catch(Exception e){
@@ -29,7 +30,7 @@ public class EliminarDatos {
     }
     public void Cliente (String xidpro){
          try{
-            c.ps=c.con.prepareStatement("DELETE FROM Cliente WHERE IdCargo=?");
+            c.ps=c.con.prepareStatement("DELETE FROM Cliente WHERE IdCliente=?");
             c.ps.setString(1, xidpro);
             c.ps.executeUpdate();
         }catch(Exception e){

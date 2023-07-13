@@ -12,7 +12,7 @@ import ClasesReportes.Compras;
 import java.sql.*;
 import java.util.ArrayList;
 public class Conexion {
- Connection con;
+    Connection con;
     PreparedStatement ps;
     ResultSet rs;
     

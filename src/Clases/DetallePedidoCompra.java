@@ -12,11 +12,11 @@ public class DetallePedidoCompra {
 
     String IdProducto;
     String IdPedidoCompra;
-    Float PrecioUnidad;
-    int Cantidad;
-    Float Descuento;
+    String PrecioUnidad;
+    String Cantidad;
+    String Descuento;
 
-    public DetallePedidoCompra(String IdProducto, String IdPedidoCompra, Float PrecioUnidad, int Cantidad, Float Descuento) {
+    public DetallePedidoCompra(String IdProducto, String IdPedidoCompra, String PrecioUnidad, String Cantidad, String Descuento) {
         this.IdProducto = IdProducto;
         this.IdPedidoCompra = IdPedidoCompra;
         this.PrecioUnidad = PrecioUnidad;
@@ -40,30 +40,31 @@ public class DetallePedidoCompra {
         this.IdPedidoCompra = IdPedidoCompra;
     }
 
-    public Float getPrecioUnidad() {
+    public String getPrecioUnidad() {
         return PrecioUnidad;
     }
 
-    public void setPrecioUnidad(Float PrecioUnidad) {
+    public void setPrecioUnidad(String PrecioUnidad) {
         this.PrecioUnidad = PrecioUnidad;
     }
 
-    public int getCantidad() {
+    public String getCantidad() {
         return Cantidad;
     }
 
-    public void setCantidad(int Cantidad) {
+    public void setCantidad(String Cantidad) {
         this.Cantidad = Cantidad;
     }
 
-    public Float getDescuento() {
+    public String getDescuento() {
         return Descuento;
     }
 
-    public void setDescuento(Float Descuento) {
+    public void setDescuento(String Descuento) {
         this.Descuento = Descuento;
     }
-    
+
+  
     
 
 }

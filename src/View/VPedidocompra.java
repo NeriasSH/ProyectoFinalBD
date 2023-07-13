@@ -4,10 +4,14 @@
  */
 package View;
 
-/**
- *
- * @author USUARIO
- */
+import Clases.*;
+import Controler.EliminarDatos;
+import Controler.InsertarDatos;
+import Controler.ListarDatos;
+import Controler.ModificarDatos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 public class VPedidocompra extends javax.swing.JFrame {
 
     /**
@@ -15,6 +19,8 @@ public class VPedidocompra extends javax.swing.JFrame {
      */
     public VPedidocompra() {
         initComponents();
+        this.setLocationRelativeTo(null); 
+        Listar();
     }
 
     /**
@@ -44,10 +50,16 @@ public class VPedidocompra extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
 
         jButton5.setText("Insertar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Borrar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -57,8 +69,18 @@ public class VPedidocompra extends javax.swing.JFrame {
         });
 
         jButton7.setText("Modificar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("Listar");
+        jButton8.setText("Limpiar Campos");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,6 +93,12 @@ public class VPedidocompra extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.setToolTipText("");
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -97,31 +125,34 @@ public class VPedidocompra extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(269, 269, 269)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(111, 111, 111)
+                        .addComponent(jButton6)
+                        .addContainerGap(432, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(jButton5)
-                    .addGap(82, 82, 82)
-                    .addComponent(jButton6)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                    .addContainerGap(408, Short.MAX_VALUE)
                     .addComponent(jButton7)
                     .addGap(78, 78, 78)
                     .addComponent(jButton8)
@@ -153,13 +184,15 @@ public class VPedidocompra extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6))
+                .addGap(45, 45, 45))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap(310, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)
                         .addComponent(jButton7)
                         .addComponent(jButton8))
                     .addGap(46, 46, 46)))
@@ -179,9 +212,102 @@ public class VPedidocompra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Listar(){
+      ListarDatos listar = new ListarDatos();
+      DefaultTableModel mitabla=new DefaultTableModel();
+      
+      ArrayList<Pedidocompra>lista1=new ArrayList<>();
+       
+      lista1=listar.PedidoCompra();
+      
+       jTable2.setModel(mitabla);
+       
+       String[] titulos = {"Codigo","FechaPedido","FechaEntrega","Total"};
+       
+       mitabla.setColumnCount(titulos.length);
+       
+       mitabla.setColumnIdentifiers(titulos);
+       
+       mitabla.setRowCount(0);
+       
+       String [] datos = new String [(titulos.length)+1];
+       
+       for(Pedidocompra l:lista1){
+           datos[0] =l.getIdPedidoCompra();
+           datos[1]=l.getFechaPedido();
+           datos[2]=l.getFechaEntrega();
+           datos[3]=l.getTotal();
+           mitabla.addRow(datos);  
+       }
+         
+    }
+
+public void Insertar(){
+        InsertarDatos insertar = new InsertarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        
+        
+        insertar.PedidoCompra(idT, idT2, text4, text5);
+    }
+
+public void Modificar(){
+        ModificarDatos modificar = new ModificarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        
+        
+        modificar.PedidoCompra(idT, idT2, text4, text5);
+    }
+
+public void Eliminar(){
+        EliminarDatos eliminar = new EliminarDatos();
+        String idT = jTextField1.getText();
+        eliminar.PedidoCompra(idT);
+        
+    }  
+
+public void Limpiar(){
+       
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+    }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        //Eliminar
+        Eliminar();
+        Listar();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //Insertar
+         Insertar();
+         Listar();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //MOdificar
+        Modificar();
+        Listar();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //Limpiar
+         Limpiar();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        //Sacar valores de tabla
+        jTextField1.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 0).toString());
+        jTextField2.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 1).toString());
+        jTextField4.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 2).toString());
+        jTextField5.setText(jTable2.getValueAt(jTable2.getSelectedRow(), 3).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments

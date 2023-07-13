@@ -4,10 +4,14 @@
  */
 package View;
 
-/**
- *
- * @author USUARIO
- */
+import Clases.*;
+import Controler.EliminarDatos;
+import Controler.InsertarDatos;
+import Controler.ListarDatos;
+import Controler.ModificarDatos;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 public class VPedidoventa extends javax.swing.JFrame {
 
     /**
@@ -15,6 +19,8 @@ public class VPedidoventa extends javax.swing.JFrame {
      */
     public VPedidoventa() {
         initComponents();
+        this.setLocationRelativeTo(null); 
+        Listar();
     }
 
     /**
@@ -50,6 +56,11 @@ public class VPedidoventa extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
 
         jButton5.setText("Insertar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Borrar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -59,8 +70,18 @@ public class VPedidoventa extends javax.swing.JFrame {
         });
 
         jButton7.setText("Modificar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("Listar");
+        jButton8.setText("Limpiar Campos");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,27 +138,25 @@ public class VPedidoventa extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 247, Short.MAX_VALUE)
+                                .addComponent(jButton7))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(249, 249, 249)
                         .addComponent(jLabel6)))
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jButton8)
+                .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton5)
-                            .addGap(82, 82, 82)
-                            .addComponent(jButton6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                            .addComponent(jButton7)
-                            .addGap(78, 78, 78)
-                            .addComponent(jButton8)
-                            .addGap(28, 28, 28))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(170, 170, 170)
+                    .addComponent(jButton6)
+                    .addContainerGap(388, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGap(151, 151, 151)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(17, 17, 17)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,17 +184,18 @@ public class VPedidoventa extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton5)
+                    .addComponent(jButton7))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(46, 46, 46)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7)
-                        .addComponent(jButton8))
+                    .addComponent(jButton6)
                     .addGap(46, 46, 46)))
         );
 
@@ -193,9 +213,98 @@ public class VPedidoventa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Listar(){
+      ListarDatos listar = new ListarDatos();
+      DefaultTableModel mitabla=new DefaultTableModel();
+      
+      ArrayList<Pedidoventa>lista1=new ArrayList<>();
+       
+      lista1=listar.PedidoVenta();
+      
+       jTable2.setModel(mitabla);
+       
+       String[] titulos = {"Codigo","Fecha","ID_Cliente","Total","ID_Empleado"};
+       
+       mitabla.setColumnCount(titulos.length);
+       
+       mitabla.setColumnIdentifiers(titulos);
+       
+       mitabla.setRowCount(0);
+       
+       String [] datos = new String [(titulos.length)+1];
+       
+       for(Pedidoventa l:lista1){
+           datos[0] =l.getIdPedidoVenta();
+           datos[1]=l.getFecha();
+           datos[2]=l.getIdCliente();
+           datos[3]=""+l.getTotal();
+           datos[4]=l.getIdEmpleado();
+           mitabla.addRow(datos);  
+       }
+         
+    }
+
+public void Insertar(){
+        InsertarDatos insertar = new InsertarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        String text6 = jTextField6.getText();
+        
+        
+        insertar.PedidoVenta(idT, idT2, text4, text5, text6);
+    }
+
+public void Modificar(){
+        ModificarDatos modificar = new ModificarDatos();
+        String idT = jTextField1.getText();
+        String idT2 = jTextField2.getText();
+        String text4 = jTextField4.getText();
+        String text5 = jTextField5.getText();
+        String text6 = jTextField6.getText();
+        
+        modificar.PedidoVenta(idT, idT2, text5);
+    }
+
+public void Eliminar(){
+        EliminarDatos eliminar = new EliminarDatos();
+        String idT = jTextField1.getText();
+        eliminar.PedidoVenta(idT);
+        
+    }  
+
+public void Limpiar(){
+       
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+    }
+
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        //Eliminar
+        Eliminar();
+        Listar();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+      //Insertar
+         Insertar();
+         Listar();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //MOdificar
+        Modificar();
+        Listar();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //Limpiar
+         Limpiar();
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

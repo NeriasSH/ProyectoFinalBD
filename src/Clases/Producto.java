@@ -12,13 +12,13 @@ public class Producto {
 
     String IdProducto;
     String NombreProducto;
-    int CantidadPorUnidad;
-    Float PrecioUnidad;
+    String CantidadPorUnidad;
+    String PrecioUnidad;
     String IdProveedor;
     String IdCategoria;
     String UnidadesEnExistencia;
 
-    public Producto(String IdProducto, String NombreProducto, int CantidadPorUnidad, Float PrecioUnidad, String IdProveedor, String IdCategoria, String UnidadesEnExistencia) {
+    public Producto(String IdProducto, String NombreProducto, String CantidadPorUnidad, String PrecioUnidad, String IdProveedor, String IdCategoria, String UnidadesEnExistencia) {
         this.IdProducto = IdProducto;
         this.NombreProducto = NombreProducto;
         this.CantidadPorUnidad = CantidadPorUnidad;
@@ -44,19 +44,19 @@ public class Producto {
         this.NombreProducto = NombreProducto;
     }
 
-    public int getCantidadPorUnidad() {
+    public String getCantidadPorUnidad() {
         return CantidadPorUnidad;
     }
 
-    public void setCantidadPorUnidad(int CantidadPorUnidad) {
+    public void setCantidadPorUnidad(String CantidadPorUnidad) {
         this.CantidadPorUnidad = CantidadPorUnidad;
     }
 
-    public Float getPrecioUnidad() {
+    public String getPrecioUnidad() {
         return PrecioUnidad;
     }
 
-    public void setPrecioUnidad(Float PrecioUnidad) {
+    public void setPrecioUnidad(String PrecioUnidad) {
         this.PrecioUnidad = PrecioUnidad;
     }
 

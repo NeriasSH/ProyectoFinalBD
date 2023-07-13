@@ -166,7 +166,7 @@ public class ListarDatos {
             
             c.rs=c.ps.executeQuery();
             while(c.rs.next()){
-                lista.add(new Pedidocompra (c.rs.getString(1), c.rs.getString(2),c.rs.getString(3),c.rs.getFloat(4)));
+                lista.add(new Pedidocompra (c.rs.getString(1), c.rs.getString(2),c.rs.getString(3),c.rs.getString(4)));
             }
             
         }catch(Exception e){
@@ -238,7 +238,7 @@ public class ListarDatos {
             
             c.rs=c.ps.executeQuery();
             while(c.rs.next()){
-                lista.add(new Producto (c.rs.getString(1), c.rs.getString(2),c.rs.getInt(3), c.rs.getFloat(4),c.rs.getString(5), c.rs.getString(6),c.rs.getString(7)));
+                lista.add(new Producto (c.rs.getString(1), c.rs.getString(2),c.rs.getString(3), c.rs.getString(4),c.rs.getString(5), c.rs.getString(6),c.rs.getString(7)));
             }
             
         }catch(Exception e){
@@ -274,7 +274,7 @@ public class ListarDatos {
             
             c.rs=c.ps.executeQuery();
             while(c.rs.next()){
-                lista.add(new DetallePedidoCompra (c.rs.getString(1), c.rs.getString(2),c.rs.getFloat(3),c.rs.getInt(4),c.rs.getFloat(5)));
+                lista.add(new DetallePedidoCompra (c.rs.getString(1), c.rs.getString(2),c.rs.getString(3),c.rs.getString(4),c.rs.getString(5)));
             }
             
         }catch(Exception e){
@@ -324,9 +324,10 @@ public class ListarDatos {
          
           ArrayList<ComprobantePago>lista =new ArrayList();
          try{
+             
             c.ps=c.con.prepareStatement("SELECT * FROM ComprobantePago");
-            
             c.rs=c.ps.executeQuery();
+            
             while(c.rs.next()){
                 lista.add(new ComprobantePago (c.rs.getString(1), c.rs.getString(2),c.rs.getFloat(3),c.rs.getFloat(4),c.rs.getString(5), c.rs.getString(6)));
             }

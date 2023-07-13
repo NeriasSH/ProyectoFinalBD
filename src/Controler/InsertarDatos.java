@@ -241,6 +241,7 @@ public class InsertarDatos {
 
     public void ComprobantePago(String date, String date2, String date3, String date4, String date5, String date6) {
         try {
+            
             c.ps = c.con.prepareStatement("Insert into ComprobantePago values(?,?,?,?,?,?)");
             c.ps.setString(1, date);
             c.ps.setString(2, date2);
@@ -248,7 +249,9 @@ public class InsertarDatos {
             c.ps.setString(4, date4);
             c.ps.setString(5, date5);
             c.ps.setString(6, date6);
+            
             c.ps.executeUpdate();
+            
         } catch (Exception e) {
             System.out.println("ErrorInsertar " + e);
         }
