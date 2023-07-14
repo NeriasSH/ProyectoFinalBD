@@ -10,6 +10,8 @@ import Controler.EliminarDatos;
 import Controler.InsertarDatos;
 import Controler.ListarDatos;
 import Controler.ModificarDatos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +28,16 @@ public class VCliente extends javax.swing.JFrame {
         initComponents();
         Listar();
          this.setLocationRelativeTo(null);
+      setIconImage(getIconImage());
+    }
+    //Icono del JFrame
+    @Override
+    public Image getIconImage(){
+        
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/LogoProyecto - copia.png"));
+        
+      return retValue;
+        
     }
 
     /**

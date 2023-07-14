@@ -8,6 +8,8 @@ import Reportes.Proceso_Almacen;
 import Reportes.Proceso_Compra;
 import Reportes.Proceso_Empleados;
 import Reportes.Proceso_Ventas;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -24,6 +26,16 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setIconImage(getIconImage());
+    }
+    //Icono del JFrame
+    @Override
+    public Image getIconImage(){
+        
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/LogoProyecto - copia.png"));
+        
+      return retValue;
+        
     }
 
     /**
@@ -132,8 +144,8 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +176,7 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -197,7 +209,17 @@ public class Principal extends javax.swing.JFrame {
         VEvaluaciondesempeño ed=new VEvaluaciondesempeño();
         VFormapago fp = new VFormapago();
         VHorario h = new VHorario();
-      
+        VPedidocompra pc = new VPedidocompra();
+        VPedidoventa pv = new VPedidoventa();
+        VPlatillo pla = new VPlatillo();
+        VDetalleventa dv = new VDetalleventa();
+        VProducto product = new VProducto();
+        VRegistroalmacen ra = new VRegistroalmacen();
+        VDetalleventa dt = new VDetalleventa();
+        VProveedor pro = new VProveedor();
+        VTipopago tp = new VTipopago();
+        VComprobantePago com = new VComprobantePago();
+        
         //proceoss
         
         if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("1")) {
@@ -242,6 +264,57 @@ public class Principal extends javax.swing.JFrame {
          if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("8")) {
             System.out.println("Ok");
             h.setVisible(true);
+            
+        }
+         
+          if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("9")) {
+            System.out.println("Ok");
+            pc.setVisible(true);
+            
+        }
+           if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("10")) {
+            System.out.println("Ok");
+            pv.setVisible(true);
+            
+        }
+            if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("11")) {
+            System.out.println("Ok");
+            pla.setVisible(true);
+            
+        }
+             if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("12")) {
+            System.out.println("Ok");
+            dv.setVisible(true);
+            
+        }
+              if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("13")) {
+            System.out.println("Ok");
+            product.setVisible(true);
+            
+        }
+               if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("14")) {
+            System.out.println("Ok");
+            ra.setVisible(true);
+            
+        }
+                if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("15")) {
+            System.out.println("Ok");
+            dt.setVisible(true);
+            
+        }
+                 if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("16")) {
+            System.out.println("Ok");
+            pro.setVisible(true);
+            
+        }
+                  if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("17")) {
+            System.out.println("Ok");
+            tp.setVisible(true);
+            
+        }
+                   if ((Tabla.getValueAt(Tabla.getSelectedRow(), 0).toString()).equals("18")) {
+            System.out.println("Ok");
+            com.setVisible(true);
             
         }
       

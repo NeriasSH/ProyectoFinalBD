@@ -10,6 +10,8 @@ import Controler.EliminarDatos;
 import Controler.InsertarDatos;
 import Controler.ListarDatos;
 import Controler.ModificarDatos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,8 +28,19 @@ public class VCargo extends javax.swing.JFrame {
      */
     public VCargo() {
         initComponents();
+         setIconImage(getIconImage());
          listarT();
           this.setLocationRelativeTo(null);
+     
+    }
+    //Icono del JFrame
+    @Override
+    public Image getIconImage(){
+        
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/LogoProyecto - copia.png"));
+        
+      return retValue;
+        
     }
     
    public void listarT(){
@@ -107,6 +120,7 @@ public class VCargo extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(37, 37, 37));
 

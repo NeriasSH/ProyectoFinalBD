@@ -9,6 +9,8 @@ import Controler.EliminarDatos;
 import Controler.InsertarDatos;
 import Controler.ListarDatos;
 import Controler.ModificarDatos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +23,16 @@ public class VTipopago extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); 
         Listar();
+       setIconImage(getIconImage());
+    }
+    //Icono del JFrame
+    @Override
+    public Image getIconImage(){
+        
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/LogoProyecto - copia.png"));
+        
+      return retValue;
+        
     }
 
     /**
@@ -71,7 +83,7 @@ public class VTipopago extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Limpiar");
+        jButton8.setText("Limpiar Textos");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -130,7 +142,7 @@ public class VTipopago extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addGap(86, 86, 86)
                 .addComponent(jButton6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(jButton7)
                 .addGap(94, 94, 94)
                 .addComponent(jButton8)

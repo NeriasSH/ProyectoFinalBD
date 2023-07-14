@@ -9,6 +9,8 @@ import Controler.EliminarDatos;
 import Controler.InsertarDatos;
 import Controler.ListarDatos;
 import Controler.ModificarDatos;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,6 +27,16 @@ public class VDetallecompra extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); 
         Listar();
+       setIconImage(getIconImage());
+    }
+    //Icono del JFrame
+    @Override
+    public Image getIconImage(){
+        
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/LogoProyecto - copia.png"));
+        
+      return retValue;
+        
     }
 
     /**
@@ -74,7 +86,7 @@ public class VDetallecompra extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Listar");
+        jButton8.setText("Limpiar Campos");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
